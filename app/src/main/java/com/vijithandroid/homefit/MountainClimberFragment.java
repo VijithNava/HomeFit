@@ -14,14 +14,14 @@ import android.widget.TextView;
 /**
  * Created by vijithnava on 2016-02-26.
  */
-public class PushUpFragment extends Fragment {
+public class MountainClimberFragment extends Fragment {
     /**
      * The fragment argument representing the section number for this
      * fragment.
      */
-    static final String TITLE = "Push Up";
+    static final String TITLE = "Mountain Runner";
 
-    public PushUpFragment() {
+    public MountainClimberFragment() {
     }
 
     @Override
@@ -29,24 +29,23 @@ public class PushUpFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.exercise_fragment, container, false);
         ImageView imageOne = (ImageView) rootView.findViewById(R.id.exercise_img_one);
-        imageOne.setImageResource(R.drawable.pushup_1);
+        imageOne.setImageResource(R.drawable.mountain_climber_1);
 
         ImageView imageTwo = (ImageView) rootView.findViewById(R.id.exercise_img_two);
-        imageTwo.setImageResource(R.drawable.pushup_2);
+        imageTwo.setImageResource(R.drawable.mountain_climber_2);
 
         TextView textView = (TextView) rootView.findViewById(R.id.exercise_description);
-        textView.setText("1.\tLie on the floor face down and place your hands about 36 inches apart while holding your torso up at arms length.\n\n" +
-                "2.\tNext, lower yourself downward until your chest almost touches the floor as you inhale.\n\n" +
-                "3.\tNow breathe out and press your upper body back up to the starting position while squeezing your chest.\n\n" +
-                "4.\tAfter a brief pause at the top contracted position, you can begin to lower yourself downward again for as many repetitions as needed.");
+        textView.setText("1.\tBegin in a pushup position, with your weight supported by your hands and toes. Flexing the knee and hip, bring one leg until the knee is approximately under the hip. This will be your starting position.\n\n" +
+                "2.\tExplosively reverse the positions of your legs, extending the bent leg until the leg is straight and supported by the toe, and bringing the other foot up with the hip and knee flexed. Repeat in an alternating fashion for 20-30 seconds.");
+
 
         ImageView imageMusclesWorked = (ImageView) rootView.findViewById(R.id.exercise_muscle);
-        imageMusclesWorked.setImageResource(R.drawable.pushup_main_muscle);
+        imageMusclesWorked.setImageResource(R.drawable.mountain_climber_main_muscle);
 
         Button launchButton = (Button) rootView.findViewById(R.id.launch_workout_video);
         launchButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                getActivity().startActivity(new Intent("android.intent.action.VIEW", Uri.parse("http://www.bodybuilding.com/exercises/detail/view/name/pushups")));
+                getActivity().startActivity(new Intent("android.intent.action.VIEW", Uri.parse("http://www.bodybuilding.com/exercises/detail/view/name/mountain-climbers")));
             }
         });
 

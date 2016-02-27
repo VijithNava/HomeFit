@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -36,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new SquatFragment(), SquatFragment.TITLE);
         adapter.addFragment(new PushUpFragment(), PushUpFragment.TITLE);
-        adapter.addFragment(new MountainRunnerFragment(), MountainRunnerFragment.TITLE);
+        adapter.addFragment(new MountainClimberFragment(), MountainClimberFragment.TITLE);
         adapter.addFragment(new BurpeeFragment(), BurpeeFragment.TITLE);
         adapter.addFragment(new PlankFragment(), PlankFragment.TITLE);
         viewPager.setAdapter(adapter);
