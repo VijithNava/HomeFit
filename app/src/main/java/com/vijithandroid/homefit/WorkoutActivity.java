@@ -122,6 +122,12 @@ public class WorkoutActivity extends AppCompatActivity {
        timer.start();
    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        cdTimer.cancel();
+    }
+
     public class MyCount extends CountDownTimer
     {
         public MyCount(long millisInFuture, long countDownInterval)
