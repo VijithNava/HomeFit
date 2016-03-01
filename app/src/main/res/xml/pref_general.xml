@@ -1,0 +1,21 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="num_of_circuits"
+        android:title="@string/pref_title_numCircuits"
+        android:entries="@array/pref_num_of_circuits_titles"
+        android:entryValues="@array/pref_num_of_circuits_values"
+        android:defaultValue="4"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null" />
+
+    <ListPreference
+        android:key="exercise_length"
+        android:title="@string/pref_title_exercise_length"
+        android:entries="@array/pref_exercise_length_titles"
+        android:entryValues="@array/pref_exercise_length_values"
+        android:defaultValue="90"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null" />
+
+</PreferenceScreen>

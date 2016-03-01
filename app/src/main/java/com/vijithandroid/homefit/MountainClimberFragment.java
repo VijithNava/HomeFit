@@ -19,7 +19,7 @@ public class MountainClimberFragment extends Fragment {
      * The fragment argument representing the section number for this
      * fragment.
      */
-    static final String TITLE = "Mountain Runner";
+    static final String TITLE = "Mountain Climber";
 
     public MountainClimberFragment() {
     }

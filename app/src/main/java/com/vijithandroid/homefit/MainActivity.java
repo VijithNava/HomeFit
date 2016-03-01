@@ -1,5 +1,6 @@
 package com.vijithandroid.homefit;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -7,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -35,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -48,16 +50,6 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-    }
-
-    private void setupViewPager(ViewPager viewPager) {
-        SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new SquatFragment(), SquatFragment.TITLE);
-        adapter.addFragment(new PushUpFragment(), PushUpFragment.TITLE);
-        adapter.addFragment(new MountainClimberFragment(), MountainClimberFragment.TITLE);
-        adapter.addFragment(new BurpeeFragment(), BurpeeFragment.TITLE);
-        adapter.addFragment(new PlankFragment(), PlankFragment.TITLE);
-        viewPager.setAdapter(adapter);
     }
 
     @Override
@@ -73,13 +65,28 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        if (id == R.id.workout_page) {
+            startActivity(new Intent(this, WorkoutActivity.class));
+            return true;
+        }
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+        SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new SquatFragment(), SquatFragment.TITLE);
+        adapter.addFragment(new PushUpFragment(), PushUpFragment.TITLE);
+        adapter.addFragment(new MountainClimberFragment(), MountainClimberFragment.TITLE);
+        adapter.addFragment(new BurpeeFragment(), BurpeeFragment.TITLE);
+        adapter.addFragment(new PlankFragment(), PlankFragment.TITLE);
+        viewPager.setAdapter(adapter);
     }
 
 
