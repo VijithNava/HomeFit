@@ -1,6 +1,7 @@
 package com.vijithandroid.homefit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -162,6 +163,8 @@ public class WorkoutActivity extends AppCompatActivity {
             currentExerciseIndex = (currentExerciseIndex + 1) % 5;
             if (currentExerciseIndex == 0) currentCircuitNumber++;
             if(Integer.valueOf(numOfCircuits) < currentCircuitNumber){ // all the circuits are done
+                //flags are set so activity does not go back to WorkoutActivity page when user presses back but instead returns to home screen
+                startActivity(new Intent(getApplicationContext(), WorkoutDoneActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                 return;
             } else {
                 cdTimer = new MyCount(totaltimeLeft, SECONDS_TO_MILLI);

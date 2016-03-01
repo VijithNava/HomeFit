@@ -61,6 +61,7 @@
         <item>3 Circuits</item>
         <item>4 Circuits</item>
         <item>5 Circuits</item>
+        <item>10 Circuits</item>
     </string-array>
     <string-array name="pref_num_of_circuits_values">
         <item>1</item>
@@ -68,6 +69,7 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+        <item>10</item>
     </string-array>
 
     <string name="pref_title_exercise_length">Exercise Length</string>
@@ -98,5 +100,6 @@
     <string name="pref_ringtone_silent">Silent</string>
 <string name="pref_title_notifications">Sound Alert</string>
     <string name="pref_title_vibrate">Vibration Alert</string>
+    <string name="title_activity_workout_done">Workout Completed</string>
 
 </resources>
