@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +13,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
+import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
+import com.github.ksoichiro.android.observablescrollview.ScrollState;
+
 /**
  * Created by vijithnava on 2016-02-26.
  */
-public class BurpeeFragment extends Fragment {
+public class BurpeeFragment extends Fragment implements ObservableScrollViewCallbacks {
     /**
      * The fragment argument representing the section number for this
      * fragment.
@@ -28,6 +34,10 @@ public class BurpeeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.exercise_fragment, container, false);
+
+        ObservableScrollView sv = (ObservableScrollView) rootView.findViewById(R.id.scrollView);
+        sv.setScrollViewCallbacks(this);
+        
         ImageView imageOne = (ImageView) rootView.findViewById(R.id.exercise_img_one);
         imageOne.setImageResource(R.drawable.burpee_1);
 
@@ -57,6 +67,29 @@ public class BurpeeFragment extends Fragment {
         });
 
         return rootView;
+    }
+
+    @Override
+    public void onScrollChanged(int scrollY, boolean firstScroll,
+                                boolean dragging) {
+    }
+
+    @Override
+    public void onDownMotionEvent() {
+    }
+
+    @Override
+    public void onUpOrCancelMotionEvent(ScrollState scrollState) {
+        ActionBar ab = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        if (scrollState == ScrollState.UP) {
+            if (ab.isShowing()) {
+                ab.hide();
+            }
+        } else if (scrollState == ScrollState.DOWN) {
+            if (!ab.isShowing()) {
+                ab.show();
+            }
+        }
     }
 }
 
